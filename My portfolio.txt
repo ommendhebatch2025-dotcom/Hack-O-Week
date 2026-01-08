@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio | CSE Student</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f8f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #1e3b3a;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        section {
+            padding: 30px;
+            margin: 20px auto;
+            max-width: 900px;
+            background: white;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #1e3b2b;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        ul {
+            line-height: 1.8;
+        }
+
+        .project {
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #1e3a3b;
+            color: white;
+        }
+
+        a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Om Mendhe</h1>
+    <p>1st Year CSE Student | Aspiring Software Engineer</p>
+</header>
+
+<section>
+    <h2>About Me</h2>
+    <p>
+        I am a first-year Computer Science Engineering student currently in my second semester.
+        I am passionate about programming, problem-solving, and learning new technologies.
+        I aim to build strong fundamentals in computer science and become a skilled software developer.
+    </p>
+</section>
+
+<section>
+    <h2>Skills</h2>
+    <ul>
+        <li>C Programming</li>
+        <li>HTML & CSS</li>
+        <li>Basic Python</li>
+        <li>Problem Solving</li>
+        <li>Data Structures (Basics)</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Projects</h2>
+    <div class="project">
+        <h3>Student Portfolio Website</h3>
+        <p>
+            A personal portfolio website built using HTML and CSS to showcase my skills and projects.
+        </p>
+    </div>
+
+    <div class="project">
+        <h3>Mini C Program</h3>
+        <p>
+            Created basic C programs like calculator, number guessing game, and pattern printing.
+        </p>
+    </div>
+</section>
+
+<section>
+    <h2>Education</h2>
+    <p>
+        <strong>Bachelor of Technology (B.Tech) in Computer Science & Engineering</strong><br>
+        Symbiosis Institute of Technology<br>
+        Year: 2025 – 2029
+    </p>
+</section>
+
+<section>
+    <h2>Contact</h2>
+    <p>Email: ommendhe@email.com</p>
+    <p>GitHub: <a href="#">https://github.com/yourusername</a></p>
+    <p>LinkedIn: <a href="#">https://linkedin.com/in/yourprofile</a></p>
+</section>
+
+<footer>
+    <p>© 2026 Om Mendhe</p>
+</footer>
+
+</body>
+</html>
