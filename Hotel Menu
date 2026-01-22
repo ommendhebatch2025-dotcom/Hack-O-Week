@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Menu</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+        }
+
+        nav {
+            background-color: #2c2c2c;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        header {
+            text-align: center;
+            background-color: #444;
+            color: white;
+            padding: 25px;
+        }
+
+        .room-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+        }
+
+        section {
+            max-width: 900px;
+            margin: 25px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            color: #8b0000;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+
+        .menu-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .veg { color: green; }
+        .nonveg { color: red; }
+
+        button {
+            padding: 6px 14px;
+            background-color: #8b0000;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #a00000;
+        }
+
+        .special {
+            background-color: #fff3cd;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #2c2c2c;
+            color: white;
+            padding: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .menu-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            button {
+                margin-top: 8px;
+            }
+            nav a {
+                display: block;
+                margin: 8px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#starters">Starters</a>
+    <a href="#lunch">Lunch</a>
+    <a href="#dinner">Dinner</a>
+    <a href="#desserts">Desserts</a>
+    <a href="#special">Today's Special</a>
+</nav>
+
+<header>
+    <h1>Monarch's Buffet Hotel</h1>
+    <p>Luxury • Comfort • Taste</p>
+</header>
+
+<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511"
+     alt="Empty Hotel Room"
+     class="room-image">
+
+<!-- Starters -->
+<section id="starters">
+    <h2>Starters</h2>
+    <div class="menu-item">
+        <div class="menu-left"><span class="veg">🟢</span> Paneer Tikka – ₹220</div>
+        <button>Order</button>
+    </div>
+    <div class="menu-item">
+        <div class="menu-left"><span class="nonveg">🔴</span> Chicken Soup – ₹160</div>
+        <button>Order</button>
+    </div>
+</section>
+
+<!-- Lunch -->
+<section id="lunch">
+    <h2>Lunch</h2>
+    <div class="menu-item">
+        <div class="menu-left"><span class="veg">🟢</span> Veg Thali – ₹250</div>
+        <button>Order</button>
+    </div>
+    <div class="menu-item">
+        <div class="menu-left"><span class="nonveg">🔴</span> Chicken Biryani – ₹320</div>
+        <button>Order</button>
+    </div>
+</section>
+
+<!-- Dinner -->
+<section id="dinner">
+    <h2>Dinner</h2>
+    <div class="menu-item">
+        <div class="menu-left"><span class="veg">🟢</span> Paneer Butter Masala – ₹280</div>
+        <button>Order</button>
+    </div>
+    <div class="menu-item">
+        <div class="menu-left"><span class="nonveg">🔴</span> Butter Chicken – ₹340</div>
+        <button>Order</button>
+    </div>
+</section>
+
+<!-- Desserts -->
+<section id="desserts">
+    <h2>Desserts</h2>
+
+    <div class="menu-item">
+        <div class="menu-left"><span class="veg">🟢</span> Gulab Jamun (2 pcs) – ₹120</div>
+        <button>Order</button>
+    </div>
+
+    <div class="menu-item">
+        <div class="menu-left"><span class="veg">🟢</span> Chocolate Lava Cake – ₹180</div>
+        <button>Order</button>
+    </div>
+
+    <div class="menu-item">
+        <div class="menu-left"><span class="veg">🟢</span> Vanilla Ice Cream – ₹100</div>
+        <button>Order</button>
+    </div>
+</section>
+
+<!-- Today's Special -->
+<section id="special" class="special">
+    <h2>Today's Special</h2>
+    <div class="menu-item">
+        <div class="menu-left"><span class="nonveg">🔴</span> Chef’s Special Fish Curry – ₹360</div>
+        <button>Order</button>
+    </div>
+    <div class="menu-item">
+        <div class="menu-left"><span class="veg">🟢</span> Special Veg Biryani – ₹280</div>
+        <button>Order</button>
+    </div>
+</section>
+
+<footer>
+    <p>📞 Contact: 98765 43210</p>
+    <p>© 2026 Royal Stay Hotel</p>
+</footer>
+
+</body>
+</html>
