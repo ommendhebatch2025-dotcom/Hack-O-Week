@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>World AI Travel Planner</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --primary:#1e3c72;
+  --secondary:#2a5298;
+  --accent:#ff7a18;
+  --glass:rgba(255,255,255,0.65);
+}
+
+/* RESET */
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(120deg,#c9d6ff,#fbc7d4);
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* FLOATING MAP BACKGROUND */
+.map-bg span{
+  position:absolute;
+  font-size:22px;
+  opacity:0.35;
+  animation:float 25s linear infinite;
+}
+@keyframes float{
+  from{transform:translateY(120vh);}
+  to{transform:translateY(-150vh);}
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:80px 20px 50px;
+}
+.hero h1{
+  font-size:3rem;
+  margin:0;
+}
+.hero span{color:var(--primary);}
+.hero p{opacity:0.8;}
+
+/* CONTAINER */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:20px;
+}
+
+/* SETTINGS */
+.settings{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  background:var(--glass);
+  backdrop-filter:blur(15px);
+  padding:30px;
+  border-radius:25px;
+  box-shadow:0 25px 50px rgba(0,0,0,0.2);
+}
+
+.settings label{font-weight:600;}
+.settings input,
+.settings select{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:12px;
+  margin-top:5px;
+}
+
+.settings button{
+  grid-column:span 2;
+  padding:14px;
+  border:none;
+  border-radius:16px;
+  background:linear-gradient(to right,var(--primary),var(--secondary));
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  transition:transform 0.2s;
+}
+.settings button:hover{transform:scale(1.05);}
+
+/* ITINERARY */
+.itinerary{
+  margin-top:45px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:25px;
+}
+.card{
+  background:var(--glass);
+  backdrop-filter:blur(12px);
+  padding:25px;
+  border-radius:20px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.15);
+}
+.card h2{color:var(--primary);}
+
+/* CHATBOT */
+.chatbot{
+  margin-top:70px;
+  background:var(--glass);
+  backdrop-filter:blur(15px);
+  padding:30px;
+  border-radius:25px;
+  box-shadow:0 25px 50px rgba(0,0,0,0.2);
+}
+.chatbot h2{color:var(--accent);}
+
+.chatbox{
+  height:260px;
+  overflow-y:auto;
+  background:rgba(255,255,255,0.6);
+  padding:15px;
+  border-radius:15px;
+}
+
+.message{
+  max-width:75%;
+  padding:10px 15px;
+  margin:10px 0;
+  border-radius:18px;
+  font-size:0.95rem;
+}
+.user{
+  background:var(--primary);
+  color:white;
+  margin-left:auto;
+}
+.bot{
+  background:white;
+  color:#333;
+}
+
+.input-area{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+}
+.input-area input{
+  flex:1;
+  padding:12px;
+  border-radius:12px;
+  border:none;
+}
+.input-area button{
+  padding:12px 18px;
+  border:none;
+  border-radius:12px;
+  background:linear-gradient(to right,var(--primary),var(--secondary));
+  color:white;
+  cursor:pointer;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING BACKGROUND -->
+<div class="map-bg">
+  <span style="left:10%">🌍 USA</span>
+  <span style="left:30%">🌍 Europe</span>
+  <span style="left:50%">🌍 Asia</span>
+  <span style="left:70%">🌍 Australia</span>
+</div>
+
+<section class="hero">
+  <h1>🌍 <span>World AI Travel Planner</span></h1>
+  <p>Smart itinerary planning with AI assistance</p>
+</section>
+
+<div class="container">
+
+  <!-- SETTINGS -->
+  <div class="settings">
+    <div>
+      <label>Start Date</label>
+      <input type="date" id="startDate">
+    </div>
+
+    <div>
+      <label>End Date</label>
+      <input type="date" id="endDate">
+    </div>
+
+    <div>
+      <label>Country</label>
+      <select id="country">
+        <option>USA</option>
+        <option>France</option>
+        <option>Italy</option>
+        <option>Japan</option>
+        <option>India</option>
+        <option>Australia</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Interest</label>
+      <select id="interest">
+        <option>City Tour</option>
+        <option>Nature</option>
+        <option>Adventure</option>
+        <option>Culture</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Budget</label>
+      <select id="budget">
+        <option>Low</option>
+        <option>Medium</option>
+        <option>High</option>
+      </select>
+    </div>
+
+    <button onclick="generateItinerary()">Generate Itinerary</button>
+  </div>
+
+  <!-- ITINERARY RESULT -->
+  <div class="itinerary" id="itinerary"></div>
+
+  <!-- AI CHATBOT -->
+  <div class="chatbot">
+    <h2>🤖 AI Travel Assistant</h2>
+    <div class="chatbox" id="chatbox">
+      <div class="message bot">
+        Hi! Ask me about weather, food, destinations or trip duration ✈️
+      </div>
+    </div>
+    <div class="input-area">
+      <input id="userInput" placeholder="e.g. 3 day tour, food in Japan, weather in Italy">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+</footer>
+
+<script>
+function generateItinerary(){
+  const start=startDate.value;
+  const end=endDate.value;
+  const country=country.value;
+  const interest=interest.value;
+  const budget=budget.value;
+
+  if(!start||!end){
+    alert("Please select travel dates");
+    return;
+  }
+
+  itinerary.innerHTML=`
+    <div class="card">
+      <h2>${country} Trip Plan</h2>
+      <p><b>Dates:</b> ${start} to ${end}</p>
+      <p><b>Interest:</b> ${interest}</p>
+      <p><b>Budget:</b> ${budget}</p>
+      <p>AI-recommended destinations and activities based on your preferences.</p>
+    </div>`;
+}
+
+function sendMessage(){
+  const input=document.getElementById("userInput");
+  const chatbox=document.getElementById("chatbox");
+  const text=input.value.trim();
+  if(!text) return;
+
+  chatbox.innerHTML+=`<div class="message user">${text}</div>`;
+
+  let reply="I can help plan your trip 🌍";
+  const t=text.toLowerCase();
+
+  if(t.includes("weather")) reply="Spring and autumn offer the best weather in most countries 🌤️";
+  else if(t.includes("food")) reply="Every country has unique cuisine — Japan 🍣, Italy 🍕, India 🍛";
+  else if(t.includes("3 day")) reply="A 3-day tour is ideal for major city highlights 🏙️";
+  else if(t.includes("destination")) reply="Top destinations include Paris, New York, Tokyo, Rome & Sydney ✈️";
+
+  setTimeout(()=>{
+    chatbox.innerHTML+=`<div class="message bot">${reply}</div>`;
+    chatbox.scrollTop=chatbox.scrollHeight;
+  },400);
+
+  input.value="";
+}
+</script>
+
+</body>
+</html>
